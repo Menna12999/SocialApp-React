@@ -30,7 +30,7 @@ const schema = z
         message:
           "Contain at least one uppercase letter,Contain at least one lowercase lette,Contain at least one digit,Contain at least one special character",
       }),
-    dateOfBirth: z.string().regex(/^\d{2}-\d{2}-\d{4}$/),
+    dateOfBirth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     gender: z.enum(["male", "female"]),
   })
   .refine((data) => data.password === data.rePassword, {
@@ -157,7 +157,7 @@ export default function Register() {
                 value={field.value ? new Date(field.value) : new Date()}
                   onChange={(date)=>{
                   if(date){
-                    const formatedDate = new Date(date).toISOString("en-US",{
+                    const formatedDate = new Date(date).toLocaleDateString("en-US",{
                       day:'2-digit',
                       month:'2-digit',
                       year:'numeric'
