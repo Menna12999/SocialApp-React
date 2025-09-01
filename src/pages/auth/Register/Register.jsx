@@ -30,7 +30,7 @@ const schema = z
         message:
           "Contain at least one uppercase letter,Contain at least one lowercase lette,Contain at least one digit,Contain at least one special character",
       }),
-    dateOfBirth: z.string().regex(/^\d{2}-\d{2}-\d{4}$/),
+    dateOfBirth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     gender: z.enum(["male", "female"]),
   })
   .refine((data) => data.password === data.rePassword, {
