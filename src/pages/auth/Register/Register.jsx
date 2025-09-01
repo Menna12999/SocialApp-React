@@ -186,7 +186,7 @@ export default function Register() {
         </div>
         {errors.gender && <ValidationError error={errors.gender.message} />}
 
-        <AppButton isLoading={isSubmitting} disabled={!isValid}>
+        <AppButton isLoading={isSubmitting}>
           Register new account
         </AppButton>
       </form>
