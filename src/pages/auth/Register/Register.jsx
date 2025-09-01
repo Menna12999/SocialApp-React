@@ -15,7 +15,7 @@ import { Helmet } from "react-helmet";
 const schema = z
   .object({
     name: z.string().min(3, { message: "name must be at least 3 characters" }),
-    email: z.string().email({ message: "email is invalid" }),
+    email: z.email({ message: "email is invalid" }),
     password: z
       .string()
       .min(8, { message: "password must be at least 8 characters" })
@@ -157,7 +157,7 @@ export default function Register() {
                 value={field.value ? new Date(field.value) : new Date()}
                   onChange={(date)=>{
                   if(date){
-                    const formatedDate = new Date(date).toISOString("en-US",{
+                    const formatedDate = new Date(date).toLocaleDateString("en-US",{
                       day:'2-digit',
                       month:'2-digit',
                       year:'numeric'
