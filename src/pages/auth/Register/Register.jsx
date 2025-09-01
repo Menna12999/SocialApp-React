@@ -157,7 +157,7 @@ export default function Register() {
                 value={field.value ? new Date(field.value) : new Date()}
                   onChange={(date)=>{
                   if(date){
-                    const formatedDate = new Date(date).toLocaleDateString("en-US",{
+                    const formatedDate = new Date(date).toISOString("en-US",{
                       day:'2-digit',
                       month:'2-digit',
                       year:'numeric'
