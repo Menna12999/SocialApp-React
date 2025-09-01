@@ -15,7 +15,7 @@ import { Helmet } from "react-helmet";
 const schema = z
   .object({
     name: z.string().min(3, { message: "name must be at least 3 characters" }),
-    email: z.email({ message: "email is invalid" }),
+    email: z.ZodString().email({ message: "email is invalid" }),
     password: z
       .string()
       .min(8, { message: "password must be at least 8 characters" })
